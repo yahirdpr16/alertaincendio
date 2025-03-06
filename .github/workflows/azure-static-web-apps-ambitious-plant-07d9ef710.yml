@@ -23,8 +23,12 @@ jobs:
         run: npm install
       - name: Build Angular app
         run: npm run build -- --configuration production
+      - name: List build output (before renaming)
+        run: ls -R dist/frontend-layer/browser
       - name: Rename index.csr.html to index.html
         run: mv dist/frontend-layer/browser/index.csr.html dist/frontend-layer/browser/index.html
+      - name: List build output (after renaming)
+        run: ls -R dist/frontend-layer/browser
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
