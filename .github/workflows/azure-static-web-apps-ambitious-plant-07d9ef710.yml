@@ -9,7 +9,7 @@ on:
     branches:
       - main
 
-# Aquí está el cambio: Agregar permisos para el ID token
+# Permisos necesarios para el ID token
 permissions:
   id-token: write
   contents: read
