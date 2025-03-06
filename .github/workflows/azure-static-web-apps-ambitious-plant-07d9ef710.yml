@@ -9,6 +9,11 @@ on:
     branches:
       - main
 
+# Aquí está el cambio: Agregar permisos para el ID token
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -28,7 +33,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  # ¡Aquí está el cambio!
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       # Paso 3: Instalar dependencias
       - name: Install dependencies
@@ -42,3 +47,19 @@ jobs:
       - name: Rename index.csr.html to index.html
         run: |
           if [ -f dist/frontend-layer/browser/index.csr.html ]; then
+            mv dist/frontend-layer/browser/index.csr.html dist/frontend-layer/browser/index.html
+          else
+            echo "Error: index.csr.html no encontrado en dist/frontend-layer/browser"
+            exit 1
+          fi
+
+      # Paso 6: Desplegar en Azure Static Web Apps
+      - name: Deploy to Azure Static Web Apps
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AMBITIOUS_PLANT_07D9EF710 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          output_location: "dist/frontend-layer/browser"
