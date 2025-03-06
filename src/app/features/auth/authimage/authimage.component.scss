@@ -1,0 +1,156 @@
+$color-primary-light: #97BC62;
+$color-primary-dark: #2C5F2D;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.6),
+    rgba($color-primary-dark, 0.9)),
+    url('/assets/img/forest.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Centra verticalmente el contenido
+  align-items: center; // Centra horizontalmente el contenido
+  gap: 2rem; // Espacio entre .text-container y .logo-container
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; // Espacio entre el logo y el título
+    margin: 0; // Eliminamos cualquier margen
+    padding: 0; // Eliminamos cualquier padding
+
+    .logo-wrapper {
+      width: 300px; // Tamaño del logo principal
+      height: 300px; // Tamaño del logo principal
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 0; // Eliminamos cualquier margen
+      padding: 0; // Eliminamos cualquier padding
+
+      .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; // Ajusta la imagen sin distorsionarla
+      }
+    }
+
+    h1 {
+      color: white;
+      font-size: 3.5rem;
+      text-align: center;
+      font-family: var(--font-headers);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      position: relative;
+      margin-bottom: 10px; // Eliminamos cualquier margen
+      padding: 0; // Eliminamos cualquier padding
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+    }
+
+    p {
+      color: white;
+      font-family: var(--font-primary);
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 600px;
+      line-height: 1.6;
+      font-weight: 300;
+      letter-spacing: 0.05rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      margin: 0; // Eliminamos cualquier margen
+    }
+
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; // Centra los logos horizontalmente
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0; // Eliminamos cualquier margen
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px; // Tamaño fijo para el contenedor
+      height: 80px; // Tamaño fijo para el contenedor
+      padding: 0.5rem;
+      transition: transform 0.3s ease;
+      overflow: hidden; // Evita que la imagen se salga del contenedor
+
+      .logo {
+        width: 100%; // La imagen ocupa todo el ancho del contenedor
+        height: 100%; // La imagen ocupa toda la altura del contenedor
+        object-fit: contain; // Ajusta la imagen sin distorsionarla
+        filter: contrast(1.1);
+        mix-blend-mode: multiply;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        .logo {
+          transform: scale(1.5); // Agranda la imagen al hacer hover
+          opacity: 1;
+          z-index: 10; // Asegura que la imagen agrandada esté por encima de las demás
+        }
+      }
+    }
+  }
+}

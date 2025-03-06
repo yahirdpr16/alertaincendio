@@ -1,0 +1,44 @@
+
+.auth-header {
+  text-align: center;
+
+
+}
+
+.auth-logo {
+  width: 200px; // Tamaño del contenedor
+  height: 200px; // Tamaño del contenedor
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 3s ease-in-out infinite;
+}
+
+
+.auth-logo img {
+  width: 100%; // La imagen ocupa todo el ancho del contenedor
+  height: 100%; // La imagen ocupa toda la altura del contenedor
+  object-fit: contain; // Ajusta la imagen sin distorsionarla
+}
+h1 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-headers);
+}
+
+p {
+  color: var(--text);
+  opacity: 0.8;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

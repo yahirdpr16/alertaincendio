@@ -1,0 +1,28 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:host {
+  --primary: #2C5F2D;
+  --secondary: #97BC62;
+  --accent: #FF6B6B;
+  --background: #F4F9F4;
+  --text: #1A1A1A;
+  --sidebar-width: 280px;
+  --icon-size: 24px;
+  --danger: #ff4757;
+  --warning: #ffa502;
+  --success: #2ed573;
+
+  display: block;
+  height: 100vh;
+}
+
+.monitoring-container {
+  display: flex;
+  height: 100%;
+}

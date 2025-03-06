@@ -1,0 +1,58 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="top-header">
+    <h1>AlertaIncendio</h1>
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      <lucide-icon
+        [name]="isCollapsed ? chevronRight : chevronLeft"
+        color="white"
+        [strokeWidth]="5"
+      ></lucide-icon>
+    </button>
+  </div>
+
+  <nav class="nav-menu">
+    <div class="menu-group">
+      <h2>PRINCIPAL</h2>
+      <a class="menu-item">
+        <lucide-icon [name]="flameIcon" color="red"></lucide-icon>
+        <span>Incendios Activos</span>
+        <span class="badge danger">0</span>
+      </a>
+      <a class="menu-item">
+        <lucide-icon [name]="bellIcon" color="orange"></lucide-icon>
+        <span>Reportados</span>
+        <span class="badge warning">0</span>
+      </a>
+      <a class="menu-item">
+        <lucide-icon [name]="checkIcon" color="green"></lucide-icon>
+        <span>Controlados</span>
+        <span class="badge success">0</span>
+      </a>
+    </div>
+
+    <div class="menu-group">
+      <h2>MONITOREO</h2>
+      <a class="menu-item">
+        <lucide-icon [name]="thermometerIcon"></lucide-icon>
+        <span>Clima</span>
+        <span class="status danger">Alto Riesgo</span>
+      </a>
+      <a class="menu-item">
+        <lucide-icon [name]="leafIcon"></lucide-icon>
+        <span>Vegetación</span>
+      </a>
+      <a class="menu-item">
+        <lucide-icon [name]="dropIcon"></lucide-icon>
+        <span>Puntos de Agua</span>
+      </a>
+    </div>
+
+    <div class="menu-group">
+      <h2>SISTEMA</h2>
+      <a class="menu-item">
+        <lucide-icon [name]="settingsIcon" color="blue"></lucide-icon>
+        <span>Info</span>
+      </a>
+    </div>
+  </nav>
+</aside>

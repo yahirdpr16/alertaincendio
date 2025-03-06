@@ -1,0 +1,984 @@
+<div class="container text-center">
+  <h1>INCENDIOS FORESTALES</h1>
+  <form class="g-3">
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>I. Datos Generales del Incendio</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="claveIncendio"
+                placeholder="Clave de incendio"
+              />
+              <label for="claveIncendio">1. Clave del incendio</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="incendioMonitoreado">
+                <option selected>Seleccione...</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+              </select>
+              <label for="incendioMonitoreado">2. Incendio monitoreado</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <input class="form-control" id="ifae" placeholder="IFAE" />
+              <label for="ifae">3. IFAE</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="entidadFederativa">
+                <option selected>Seleccione...</option>
+                <option value="michoacan">Michoacán</option>
+                <option value="otraEntidad">Otra Entidad</option>
+              </select>
+              <label for="entidadFederativa">4. Entidad Federativa</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="municipio">
+                <option selected>Seleccione...</option>
+                <option value="angangueo">Angangueo</option>
+                <option value="otroMunicipio">Otro Municipio</option>
+              </select>
+              <label for="municipio">5. Municipio</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <input class="form-control" id="predio" placeholder="Predio" />
+              <label for="predio">6. Predio</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="segundaEntidad"
+                placeholder="Segunda entidad federativa"
+              />
+              <label for="segundaEntidad">7. Segunda entidad federativa</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">8. Coordenadas</label>
+            <div class="row">
+              <div class="col-md-4">
+                <label for="longitudGrados">Longitud</label>
+                <input
+                  class="form-control"
+                  id="longitudGrados"
+                  placeholder="Grados"
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="longitudMinutos">Longitud</label>
+                <input
+                  class="form-control"
+                  id="longitudMinutos"
+                  placeholder="Minutos"
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="longitudSegundos">Longitud</label>
+                <input
+                  class="form-control"
+                  id="longitudSegundos"
+                  placeholder="Segundos"
+                />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-4">
+                <label for="latitudGrados">Latitud</label>
+                <input
+                  class="form-control"
+                  id="latitudGrados"
+                  placeholder="Grados"
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="latitudMinutos">Latitud</label>
+                <input
+                  class="form-control"
+                  id="latitudMinutos"
+                  placeholder="Minutos"
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="latitudSegundos">Latitud</label>
+                <input
+                  class="form-control"
+                  id="latitudSegundos"
+                  placeholder="Segundos"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label for="fotografia" class="form-label"
+                >9. Fotografía del tipo de vegetación más representativo</label
+              >
+              <input
+                class="form-control"
+                type="file"
+                id="fotografia"
+                accept="image/*"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="tipoPropiedad">
+                <option selected>Seleccione...</option>
+                <option value="social">Propiedades sociales (Ejidal)</option>
+                <option value="privada">Propiedades privadas</option>
+                <!-- Agrega más opciones según sea necesario -->
+              </select>
+              <label for="tipoPropiedad">10. Tipo de propiedad</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="actividadForestal">
+                <option selected>Seleccione...</option>
+                <option value="actividadesSociales">
+                  Propiedades sociales (Ejidal)
+                </option>
+                <option value="otras">Otras</option>
+                <!-- Agrega más opciones según sea necesario -->
+              </select>
+              <label for="actividadForestal"
+                >11. Actividad forestal principal del predio</label
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>II. Valoración del Incendio</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="medioDeteccion">
+                <option selected>Seleccione...</option>
+                <option value="movil">Móvil</option>
+                <option value="otro">Otro</option>
+              </select>
+              <label for="medioDeteccion">1. Medio de detección</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="deteccionEspecifica"
+                placeholder="Detección específica"
+              />
+              <label for="deteccionEspecifica">2. Detección específica</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="causaIncendio"
+                placeholder="Posible causa de incendio forestal"
+              />
+              <label for="causaIncendio"
+                >3. Posible causa de incendio forestal</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="causaEspecifica"
+                placeholder="Posible causa específica"
+              />
+              <label for="causaEspecifica">4. Posible causa específica</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="indicadorInicio"
+                placeholder="Inicio del incendio"
+              />
+              <label for="indicadorInicio"
+                >5. Indicadores de combate y movilización - Inicio del
+                incendio</label
+              >
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="indicadorDeteccion"
+                placeholder="Detección"
+              />
+              <label for="indicadorDeteccion"
+                >5. Indicadores de combate y movilización - Detección</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <h6>5. Indicadores de combate y movilización</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Indicador</th>
+              <th>HH:MM</th>
+              <th>Fecha</th>
+              <th>Eficiencia</th>
+            </tr>
+          </thead>
+          <tbody id="indicadoresTableBody">
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Inicio del incendio"
+                />
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="HH:MM" />
+              </td>
+              <td><input type="date" class="form-control" /></td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Eficiencia"
+                />
+              </td>
+            </tr>
+            <!-- Otras filas pueden ser agregadas dinámicamente -->
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" id="addIndicatorRow">
+          Agregar Indicador
+        </button>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="comandanteNombre"
+                placeholder="Nombre del Comandante"
+              />
+              <label for="comandanteNombre"
+                >6. Comandante del Incidente (Nombre)</label
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="comandanteInstancia"
+                placeholder="Instancia"
+              />
+              <label for="comandanteInstancia">Instancia</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="sistemaComando"
+                placeholder="Sistema de comando de Incidentes SCI"
+              />
+              <label for="sistemaComando"
+                >7. Sistema de comando de Incidentes SCI</label
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="tipoIncendio"
+                placeholder="Tipo de incendio"
+              />
+              <label for="tipoIncendio">8. Tipo de incendio</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="clasificacionPrimerOrden"
+                placeholder="Clasificación de primer orden"
+              />
+              <label for="clasificacionPrimerOrden"
+                >11. Clasificación de primer orden</label
+              >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="zonaBioclimatica"
+                placeholder="Zona bioclimática"
+              />
+              <label for="zonaBioclimatica">12. Zona bioclimática</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="regimenFuego"
+                placeholder="Régimen de fuego"
+              />
+              <label for="regimenFuego">13. Régimen de fuego</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input
+                class="form-control"
+                id="nombreAreaProtegida"
+                placeholder="Nombre del Área Natural Protegida"
+              />
+              <label for="nombreAreaProtegida"
+                >14. Nombre del Área Natural Protegida afectada</label
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 (Acciones de combate) -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5>15. Personal que participó</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Combatientes</th>
+                  <th>Días/persona</th>
+                  <th>Costo estimado</th>
+                </tr>
+              </thead>
+              <tbody id="personalTableBody">
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="CONAFOR Combustible Oficial"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Días"
+                      onchange="updateTotal()"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Costo"
+                      onchange="updateTotal()"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="CONANP Oficiales"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Días"
+                      onchange="updateTotal()"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Costo"
+                      onchange="updateTotal()"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Voluntarios"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Días"
+                      onchange="updateTotal()"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Costo"
+                      onchange="updateTotal()"
+                    />
+                  </td>
+                </tr>
+                <tr id="totalRow">
+                  <td>Total</td>
+                  <td id="totalDias">0</td>
+                  <td id="totalCosto">$0.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id="addPersonalRow">
+              Agregar Personal
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 (Acciones de combate) -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5>16. Acciones de combate</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Acciones</th>
+                  <th>Cantidad</th>
+                  <th>U. de medida</th>
+                </tr>
+              </thead>
+              <tbody id="accionesTableBody">
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Apertura de brecha cortafuego"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Cantidad"
+                    />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="m" />
+                  </td>
+                </tr>
+                <!-- Otras filas pueden ser agregadas dinámicamente -->
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id="addActionRow">
+              Agregar Acción
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4 (Logística del Incendio) -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5>17. Logística del incendio</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Tipo de apoyo logístico</th>
+                  <th>Instancias</th>
+                  <th>Cantidad</th>
+                  <th>Número</th>
+                  <th>Litros</th>
+                </tr>
+              </thead>
+              <tbody id="logisticaTableBody">
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Tipo de apoyo"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Instancias"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Cantidad"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Número"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Litros"
+                    />
+                  </td>
+                </tr>
+                <!-- Otras filas pueden ser agregadas dinámicamente -->
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id="addLogisticaRow">
+              Agregar Logística
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 5 (Uso de equipo terrestre) -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <h5>18. Uso de equipo terrestre</h5>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Tipo de equipo terrestre</th>
+                  <th>Instancias</th>
+                  <th>Uso</th>
+                  <th>Cantidad</th>
+                  <th>Costo</th>
+                </tr>
+              </thead>
+              <tbody id="usoEquipoTableBody">
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Camioneta"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Instancia"
+                    />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Uso" />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Cantidad"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Costo"
+                    />
+                  </td>
+                </tr>
+                <!-- Otras filas pueden ser agregadas dinámicamente -->
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id="addEquipoRow">
+              Agregar Equipo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>III. Equipo Especializado</h5>
+      </div>
+      <div class="card-body">
+        <h6>1.1 Equipo Aéreo</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Tipo de aeronave</th>
+              <th>Instancia</th>
+              <th>Matrícula</th>
+              <th>Uso</th>
+              <th>Costo</th>
+            </tr>
+          </thead>
+          <tbody id="equipoAereoTableBody">
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Tipo de aeronave"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Instancia"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Matrícula"
+                />
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="Uso" />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Costo"
+                  onchange="updateAereoTotal()"
+                />
+              </td>
+            </tr>
+            <!-- Otras filas pueden ser agregadas dinámicamente -->
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" id="addAereoRow">
+          Agregar Aeronave
+        </button>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <h6>Total de equipo aéreo</h6>
+            <p id="totalEquipoAereo">0</p>
+          </div>
+          <div class="col-md-6">
+            <h6>Costo total</h6>
+            <p id="totalCostoAereo">$0.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>IV. Costo del Incendio</h5>
+      </div>
+      <div class="card-body">
+        <h6>1. Costo de supresión del incendio</h6>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Costo</th>
+            </tr>
+          </thead>
+          <tbody id="costoTableBody">
+            <tr>
+              <td>Combatientes del incendio</td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Costo"
+                  onchange="updateTotalCosto()"
+                  value="9100"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Logística del incendio</td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Costo"
+                  onchange="updateTotalCosto()"
+                  value="0"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Uso de equipo terrestre</td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Costo"
+                  onchange="updateTotalCosto()"
+                  value="850"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Operación de equipo aéreo</td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Costo"
+                  onchange="updateTotalCosto()"
+                  value="0"
+                />
+              </td>
+            </tr>
+            <tr id="totalRow">
+              <td>Total</td>
+              <td id="totalCostoIncendio">$9,950.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" id="addCostoRow">
+          Agregar Costo
+        </button>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>V. Datos de Tiempo Atmosférico Promedio</h5>
+      </div>
+      <div class="card-body">
+        <h6>1. Parámetros promedio</h6>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>Temperatura</td>
+              <td>
+                <input type="text" class="form-control" placeholder="°C" />
+              </td>
+            </tr>
+            <tr>
+              <td>Velocidad del viento</td>
+              <td>
+                <input type="text" class="form-control" placeholder="km/h" />
+              </td>
+            </tr>
+            <tr>
+              <td>Humedad relativa</td>
+              <td>
+                <input type="text" class="form-control" placeholder="%" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mb-3">
+          <label for="eventosAnomalos" class="form-label"
+            >2. Describa si ocurrieron eventos atmosféricos anómalos que
+            influyeron en la propagación del incendio</label
+          >
+          <textarea
+            class="form-control"
+            id="eventosAnomalos"
+            rows="3"
+            placeholder="Escriba aquí..."
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <h5>VI. Eventos Singulares</h5>
+      </div>
+      <div class="card-body">
+        <!-- Card para Accidentes ocurridos durante el incendio -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h6>1. Accidentes ocurridos durante el incendio</h6>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Número de lesionados</td>
+                  <td>
+                    <input type="number" class="form-control" placeholder="0" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Número de fallecidos</td>
+                  <td>
+                    <input type="number" class="form-control" placeholder="0" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Card para Pérdida de infraestructura e impactos directos del incendio -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h6>
+              2. Pérdida de infraestructura e impactos directos del incendio
+            </h6>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Concepto</th>
+                  <th>Afectación (cuantificar)</th>
+                </tr>
+              </thead>
+              <tbody id="impactosTableBody">
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Concepto"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Afectación"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" id="addImpactoRow">
+              Agregar Impacto
+            </button>
+          </div>
+        </div>
+
+        <!-- Card para Observaciones -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h6>3. Observaciones</h6>
+          </div>
+          <div class="card-body">
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Escriba aquí..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Card para Informante -->
+        <div class="card mb-2">
+          <div class="card-header">
+            <h6>4. Informante</h6>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" placeholder="Nombre" />
+                  <label>Nombre</label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" placeholder="Cargo" />
+                  <label>Cargo</label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" placeholder="Instancia" />
+                  <label>Instancia</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="date"
+                class="form-control"
+                placeholder="Fecha del informe"
+              />
+              <label>Fecha del informe</label>
+            </div>
+            <h6>Elaboró</h6>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre y firma"
+            />
+            <h6>Visto bueno</h6>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre y firma"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">Enviar</button>
+    </div>
+  </form>
+</div>

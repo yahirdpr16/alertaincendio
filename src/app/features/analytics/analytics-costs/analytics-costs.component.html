@@ -1,0 +1,21 @@
+<div class="chart-container">
+  <h2>Desglose de Gastos del Incendio</h2>
+  <table class="expense-table">
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Monto</th>
+        <th>% del Total</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of expenses">
+        <td>{{ expense.category }}</td>
+        <td>${{ expense.amount | number }}</td>
+        <td>{{ expense.percentage }}%</td>
+        <td>{{ expense.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

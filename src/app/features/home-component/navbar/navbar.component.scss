@@ -1,0 +1,131 @@
+.navbar {
+  background: linear-gradient(to right, #2c3e50, #34495e);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    .logo-icon {
+      animation: pulse 2s infinite;
+      filter: drop-shadow(0 0 3px rgba(255, 222, 89, 0.5));
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .nav-links {
+    display: none;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      position: relative;
+
+      &:hover,
+      &.active {
+        color: #3498db;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #3498db;
+          border-radius: 2px;
+          animation: underlineAnimation 0.3s ease forwards;
+        }
+      }
+    }
+  }
+
+  .menu-button {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+
+      span {
+        background-color: #3498db;
+      }
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes underlineAnimation {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,45 @@
+:host {
+  --primary: #2C5F2D;
+  --secondary: #97BC62;
+  --accent: #FF6B6B;
+  --background: #F4F9F4;
+  --text: #1A1A1A;
+  --error: #ff4757;
+  --success: #2ed573;
+
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.auth-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
+.image-section {
+  width: 40%;
+  flex: 1;
+  position: relative;
+}
+
+.auth-container {
+  background: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  animation: slideUp 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+}

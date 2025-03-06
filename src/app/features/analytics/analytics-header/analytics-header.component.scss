@@ -1,0 +1,19 @@
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+
+  h1{
+    font-size: 40px;
+    color: transparent;
+    background: linear-gradient(135deg, #4d8a4e, #97BC62, #56CCF2);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  p{
+    font-size: 20px;
+  }
+
+}

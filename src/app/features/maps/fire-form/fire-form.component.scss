@@ -1,0 +1,147 @@
+:root {
+  --primary: #2C5F2D;
+  --primary-light: #97BC62;
+  --background: rgba(255, 255, 255, 0.7);
+  --text: #333;
+  --text-light: #6b7280;
+  --danger: #FF4B4B;
+  --warning: #FFB020;
+  --success: #14B8A6;
+  --border: rgba(255, 255, 255, 0.3);
+}
+
+body {
+  background-image: url('./img/Geometric\ Leaves\ 400x400.webp');
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  border: 1px solid var(--border);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+  color: white !important;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-floating {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+    border-color: var(--primary);
+  }
+}
+
+.form-select {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+    border-color: var(--primary);
+  }
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+      background: darken(#2C5F2D, 5%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &.btn-success {
+    background: var(--success);
+    border-color: var(--success);
+
+    &:hover {
+      background: darken(#14B8A6, 5%);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.table {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  overflow: hidden;
+
+  th {
+    background: rgba(44, 95, 45, 0.1);
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+}
+
+// Status colors
+.badge {
+  &.badge-danger { background: var(--danger); }
+  &.badge-warning { background: var(--warning); }
+  &.badge-success { background: var(--success); }
+}
+
+// Mejorar legibilidad de los títulos
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+// Estilos específicos para los inputs de coordenadas
+.coordinates-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  .form-control {
+    text-align: center;
+  }
+}
+
+// Mejorar el aspecto de los selectores
+select.form-select {
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}

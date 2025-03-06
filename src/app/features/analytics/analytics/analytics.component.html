@@ -1,0 +1,11 @@
+<div class="analytics-wrapper">
+  <analytics-header></analytics-header>
+  <div class="container">
+    <analytics-stats
+      [selectedFire]="selectedFire"
+      (fireChange)="onFireChange($event)"
+    ></analytics-stats>
+    <analytics-charts [chartData]="chartData"></analytics-charts>
+    <analytics-costs [expenses]="expenses"></analytics-costs>
+  </div>
+</div>
