@@ -15,26 +15,39 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      # Paso 1: Hacer checkout del código
       - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
+
+      # Paso 2: Autenticarse en Azure
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+
+      # Paso 3: Instalar dependencias
       - name: Install dependencies
         run: npm install
+
+      # Paso 4: Compilar la aplicación Angular
       - name: Build Angular app
         run: npm run build -- --configuration production
-      - name: List build output (before renaming)
-        run: ls -R dist/frontend-layer/browser
+
+      # Paso 5: Renombrar index.csr.html a index.html
       - name: Rename index.csr.html to index.html
         run: |
           if [ -f dist/frontend-layer/browser/index.csr.html ]; then
             mv dist/frontend-layer/browser/index.csr.html dist/frontend-layer/browser/index.html
           else
-            echo "Error: index.csr.html not found in dist/frontend-layer/browser"
+            echo "Error: index.csr.html no encontrado en dist/frontend-layer/browser"
             exit 1
           fi
-      - name: List build output (after renaming)
-        run: ls -R dist/frontend-layer/browser
+
+      # Paso 6: Desplegar en Azure Static Web Apps
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
