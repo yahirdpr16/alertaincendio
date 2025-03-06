@@ -23,6 +23,8 @@ jobs:
         run: npm install
       - name: Build Angular app
         run: npm run build -- --configuration production
+      - name: Rename index.crs.html to index.html
+        run: mv dist/frontend-layer/browser/index.crs.html dist/frontend-layer/browser/index.html
       - name: Deploy to Azure Static Web Apps
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -31,8 +33,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/"
-          output_location: "dist/frontend-layer/browser"  # Adjust based on your build output
-
+          output_location: "dist/frontend-layer/browser"
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
