@@ -26,7 +26,13 @@ jobs:
       - name: List build output (before renaming)
         run: ls -R dist/frontend-layer/browser
       - name: Rename index.csr.html to index.html
-        run: mv dist/frontend-layer/browser/index.csr.html dist/frontend-layer/browser/index.html
+        run: |
+          if [ -f dist/frontend-layer/browser/index.csr.html ]; then
+            mv dist/frontend-layer/browser/index.csr.html dist/frontend-layer/browser/index.html
+          else
+            echo "Error: index.csr.html not found in dist/frontend-layer/browser"
+            exit 1
+          fi
       - name: List build output (after renaming)
         run: ls -R dist/frontend-layer/browser
       - name: Deploy to Azure Static Web Apps
@@ -38,4 +44,3 @@ jobs:
           action: "upload"
           app_location: "/"
           output_location: "dist/frontend-layer/browser"
-
