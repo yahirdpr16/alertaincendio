@@ -1,0 +1,61 @@
+name: Build and Deploy Frontend to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # O la versión que uses para tu proyecto
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build Angular app
+        run: |
+          npm run build --prod  # Asume que tienes un script en package.json para construir el frontend
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: ./dist  # Ruta a la carpeta de build de tu proyecto Angular (ajustar según sea necesario)
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'alertaincedio'  # Nombre de tu aplicación en Azure
+          slot-name: 'Production'
+          package: ./frontend-build  # Directorio de los archivos construidos de Angular
